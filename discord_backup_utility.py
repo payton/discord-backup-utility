@@ -54,10 +54,10 @@ def cli(ctx, output, token, server_id):
 def save_server(ctx):
     """Saves entire server."""
     _logger.info("Backing up entire server")
-    save_channels()
-    save_roles()
-    save_emojis()
-    save_stickers()
+    ctx.invoke(save_channels)
+    ctx.invoke(save_roles)
+    ctx.invoke(save_emojis)
+    ctx.invoke(save_stickers)
 
 
 @cli.command()
@@ -152,10 +152,10 @@ def save_roles(ctx):
 
     # Save each emoji file
     for role in ctx.obj["SERVER_METADATA"]["roles"]:
-        role_file = f"{roles_directory}/{role['name']}.png"
+        role_file = f"{roles_directory}/{role['name']}.webp"
         _logger.info(f"Writing role icon to: {role_file}")
 
-        response = requests.get(f"https://cdn.discordapp.com/emojis/{role['icon']}", stream=True)
+        response = requests.get(f"https://cdn.discordapp.com/role-icons/{ctx.obj['SERVER_ID']}/{role['icon']}.webp?size=512&quailty=lossless", stream=True)
         with open(role_file, 'wb') as f:
             response.raw.decode_content = True
             shutil.copyfileobj(response.raw, f)
