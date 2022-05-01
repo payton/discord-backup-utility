@@ -1,6 +1,6 @@
 # Discord Backup Utility
 
-A simple command line interface to backup data from a Discord server. This is meant to be used as a last-case resort in the event that a Discord server is compromised.
+A simple command line interface to backup data from a Discord server. This is meant to be used as a worst-case resort in the event that a Discord server is compromised.
 
 ## Requirements
 Before using the CLI, you must obtain your authorization token.
@@ -43,7 +43,7 @@ Commands:
 
 There are two required options: token and server ID.
 
-Server ID can be obtains from any Discord URL in the server you want to run a backup for. For example, let's take a look at this URL from the Crypto Baristas Discord:
+Server ID can be obtains from any Discord URL in the server you want to run a backup for. For example, let's take a look at this URL from the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39):
 
 `https://discord.com/channels/968297868257550346/968305408345251892`
 
@@ -57,31 +57,31 @@ Optionally, you can specify a directory with the output option. This is where th
 
 Now that you have your server ID and token (DO NOT SHARE THIS VALUE WITH ANYONE UNDER ANY CIRCUMSTANCE), you can run one of our commands.
 
-To backup emojis for the Crypto Baristas Discord, we would run
+To backup emojis for the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39), we would run
 
 ```
 python3 discord_backup_utility.py -t MY_TOP_SECRET_TOKEN -s 968297868257550346 save-emojis
 ```
 
-To backup emojis for the Crypto Baristas Discord in a folder named "my-backup", we would run
+To backup emojis for the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39) in a folder named "my-backup", we would run
 
 ```
 python3 discord_backup_utility.py -o ./my-backup -t MY_TOP_SECRET_TOKEN -s 968297868257550346 save-emojis
 ```
 
-To backup messages in the open-discussion channel for the Crypto Baristas Discord, we would run
+To backup messages in the open-discussion channel for the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39), we would run
 
 ```
 python3 discord_backup_utility.py -t MY_TOP_SECRET_TOKEN -s 968297868257550346 save-channels -c 968305408345251892
 ```
 
-To backup all messages in the Crypto Baristas Discord, we would run
+To backup all messages in the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39), we would run
 
 ```
 python3 discord_backup_utility.py -t MY_TOP_SECRET_TOKEN -s 968297868257550346 save-channels
 ```
 
-Finally, to backup all known data for the Crypto Baristas Discord, we would run:
+Finally, to backup all known data for the [Crypto Baristas Discord](https://discord.gg/ddbjAYYh39), we would run:
 
 ```
 python3 discord_backup_utility.py -t MY_TOP_SECRET_TOKEN -s 968297868257550346 save-server
