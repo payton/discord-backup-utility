@@ -42,6 +42,12 @@ def cli(ctx, output, token, server_id):
     )
     ctx.obj['SERVER_METADATA'] = response.json()
 
+    # Write server metadata
+    server_metadata = f"{output}/metadata.json"
+    _logger.info(f"Writing server metadata to: {server_metadata}")
+    with open(server_metadata, 'w') as f:
+        json.dump(ctx.obj["SERVER_METADATA"], f, indent=4)
+
 
 @cli.command()
 @click.pass_context
